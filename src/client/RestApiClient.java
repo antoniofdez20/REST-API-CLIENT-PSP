@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 
 public class RestApiClient
 {
-    private final String BASE_URL = "http://localhost:8080/API_REST_v1/api/videojocs";
+    private final String BASE_URL = "http://localhost:8080/api/videojocs";
     private HttpClient client;
 
     public RestApiClient()
@@ -69,7 +69,7 @@ public class RestApiClient
         json.put("EMPRESA", videogame.getCompany());
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(BASE_URL + "/update"))
+                .uri(URI.create(BASE_URL + "/update/" + videogame.getId()))
                 .header("Content-Type", "application/json")
                 .PUT(HttpRequest.BodyPublishers.ofString(json.toString()))
                 .build();
@@ -80,7 +80,7 @@ public class RestApiClient
 
     public void deleteVideogameByID(int id) {
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(BASE_URL + "/" + id))
+                .uri(URI.create(BASE_URL + "/delete/" + id))
                 .DELETE()
                 .build();
 

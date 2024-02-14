@@ -8,6 +8,10 @@ public class Videogame
     private String modality;
     private String company;
 
+    public Videogame()
+    {
+    }
+
     public Videogame(int id, String title, String year, String modality, String company)
     {
         this.id = id;
