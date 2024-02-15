@@ -11,7 +11,7 @@ public class Main
     {
         RestApiClient client = new RestApiClient();
 
-        // Definir el menú con las opciones disponibles
+        // Definir el menú amb les opcions disponibles
         Menu menu = new Menu("Menú Principal",
                 "Llistar tots els videojocs",
                 "Llistar un videojoc per ID",
@@ -27,9 +27,10 @@ public class Main
         while (!exit) {
             option = menu.getOption();
 
+            //executar el mètode corresponent a l'opció seleccionada
             switch (option) {
                 case 1:
-                    client.listAllVideogames(); // Llamar al método para listar videojuegos
+                    client.listAllVideogames();
                     break;
                 case 2:
                     client.listVideogamesByID(demanarID());
@@ -47,7 +48,7 @@ public class Main
                     client.deleteVideogameByID(demanarID());
                     break;
                 case 7:
-                    exit = true; // Salir del bucle
+                    exit = true; //Sortir del bucle
                     System.out.println("Sortint del programa...");
                     break;
                 default:
@@ -56,6 +57,10 @@ public class Main
         }
     }
 
+    /**
+     * Mètode per demanar l'ID del videojoc
+     * @return
+     */
     private static String demanarID(){
         boolean error = true;
         String id = "";
@@ -73,6 +78,10 @@ public class Main
         return id;
     }
 
+    /**
+     * Mètode per demanar la companyia del videojoc
+     * @return
+     */
     private static String demanarCompany(){
         boolean error = true;
         String companyia = "";
@@ -90,6 +99,10 @@ public class Main
         return companyia;
     }
 
+    /**
+     * Mètode per demanar les dades completes del videojoc
+     * @return
+     */
     private static Videogame demanarVideogame(){
         Videogame v = new Videogame();
         System.out.println("Introdueix l'id del videojoc: ");

@@ -15,6 +15,9 @@ public class Menu
         this.options = options;
     }
 
+    /**
+     * Mostra el menú per pantalla
+     */
     public void show()
     {
         System.out.println("=".repeat(18));
@@ -26,6 +29,10 @@ public class Menu
         System.out.println("=".repeat(20));
     }
 
+    /**
+     * Agafa la opció del menú que introdueix l'usuari
+     * @return
+     */
     public int getOption()
     {
         Scanner get = new Scanner(System.in);
