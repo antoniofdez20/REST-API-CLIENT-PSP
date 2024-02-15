@@ -15,6 +15,7 @@ public class Main
         Menu menu = new Menu("Menú Principal",
                 "Llistar tots els videojocs",
                 "Llistar un videojoc per ID",
+                "Llistar videojocs per companyia",
                 "Afegir un videojoc",
                 "Modificar un videojoc",
                 "Eliminar un videojoc",
@@ -34,15 +35,18 @@ public class Main
                     client.listVideogamesByID(demanarID());
                     break;
                 case 3:
-                    client.createVideogame(demanarVideogame());
+                    client.listVideogamesByCompany(demanarCompany());
                     break;
                 case 4:
-                    client.updateVideogame(demanarVideogame());
+                    client.createVideogame(demanarVideogame());
                     break;
                 case 5:
-                    client.deleteVideogameByID(demanarID());
+                    client.updateVideogame(demanarVideogame());
                     break;
                 case 6:
+                    client.deleteVideogameByID(demanarID());
+                    break;
+                case 7:
                     exit = true; // Salir del bucle
                     System.out.println("Sortint del programa...");
                     break;
@@ -52,14 +56,14 @@ public class Main
         }
     }
 
-    private static int demanarID(){
+    private static String demanarID(){
         boolean error = true;
-        int id = 0;
+        String id = "";
 
-        while (error){
+        while (error) {
             try{
                 System.out.println("Introdueix l'ID del videojoc: ");
-                id = scann.nextInt();
+                id = scann.nextLine();
                 error = false;
             }catch (Exception e){
                 System.out.println("S'esperava un número");
@@ -69,18 +73,35 @@ public class Main
         return id;
     }
 
+    private static String demanarCompany(){
+        boolean error = true;
+        String companyia = "";
+
+        while (error) {
+            try{
+                System.out.println("Introdueix la companyia del videojoc: ");
+                companyia = scann.nextLine();
+                error = false;
+            }catch (Exception e){
+                System.out.println("S'esperava un número");
+                scann.next();
+            }
+        }
+        return companyia;
+    }
+
     private static Videogame demanarVideogame(){
         Videogame v = new Videogame();
         System.out.println("Introdueix l'id del videojoc: ");
-        v.setId(scann.nextInt());
+        v.setId(scann.nextLine());
         System.out.println("Introdueix el títol del videojoc: ");
-        v.setTitle(scann.next());
+        v.setTitle(scann.nextLine());
         System.out.println("Introdueix l'any del videojoc: ");
-        v.setYear(scann.next());
+        v.setYear(scann.nextLine());
         System.out.println("Introdueix la modalitat del videojoc: ");
-        v.setModality(scann.next());
+        v.setModality(scann.nextLine());
         System.out.println("Introdueix la companyia del videojoc: ");
-        v.setCompany(scann.next());
+        v.setCompany(scann.nextLine());
         return v;
     }
 }

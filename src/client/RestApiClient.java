@@ -27,7 +27,7 @@ public class RestApiClient
         sendRequest(request);
     }
 
-    public void listVideogamesByID(int id) {
+    public void listVideogamesByID(String id) {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/" + id))
                 .build();
@@ -37,7 +37,7 @@ public class RestApiClient
 
     public void listVideogamesByCompany(String company) {
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(BASE_URL + "/" + URLEncoder.encode(company, StandardCharsets.UTF_8)))
+                .uri(URI.create(BASE_URL + "/filtrarEmpresa/" + URLEncoder.encode(company, StandardCharsets.UTF_8)))
                 .build();
 
         sendRequest(request);
@@ -78,7 +78,7 @@ public class RestApiClient
     }
 
 
-    public void deleteVideogameByID(int id) {
+    public void deleteVideogameByID(String id) {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/delete/" + id))
                 .DELETE()

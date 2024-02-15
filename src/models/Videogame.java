@@ -2,7 +2,7 @@ package models;
 
 public class Videogame
 {
-    private int id;
+    private String id;
     private String title;
     private String year;
     private String modality;
@@ -12,7 +12,7 @@ public class Videogame
     {
     }
 
-    public Videogame(int id, String title, String year, String modality, String company)
+    public Videogame(String id, String title, String year, String modality, String company)
     {
         this.id = id;
         this.title = title;
@@ -21,11 +21,11 @@ public class Videogame
         this.company = company;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
