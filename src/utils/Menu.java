@@ -33,20 +33,19 @@ public class Menu
      * Agafa la opció del menú que introdueix l'usuari
      * @return
      */
-    public int getOption()
-    {
+    public int getOption() {
         Scanner get = new Scanner(System.in);
-
         int answer = -1;
-        try{
-            while (answer < 0 || answer > options.length) {
-                show();
+        while (answer < 0 || answer > options.length) {
+            show();
+            try {
                 answer = get.nextInt();
-
+            } catch (InputMismatchException e) {
+                System.err.println("S'esperava un numero");
+                get.nextLine(); // es consumeix el token no numeric per evitar errades en la següent lectura del input de l'usuari
+                // es reinicia el valor de la resposta per garantitzar la repetició del bucle
+                answer = -1;
             }
-        }catch (InputMismatchException e){
-            System.err.println("S'esperava un numero");
-            getOption();
         }
         return answer;
     }

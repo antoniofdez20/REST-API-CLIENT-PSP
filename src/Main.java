@@ -19,7 +19,7 @@ public class Main
                 "Afegir un videojoc",
                 "Modificar un videojoc",
                 "Eliminar un videojoc",
-                "Salir");
+                "Sortir");
 
         boolean exit = false;
         int option;
@@ -62,19 +62,9 @@ public class Main
      * @return
      */
     private static String demanarID(){
-        boolean error = true;
-        String id = "";
+        System.out.println("Introdueix l'ID del videojoc: ");
+        String id = scann.nextLine();
 
-        while (error) {
-            try{
-                System.out.println("Introdueix l'ID del videojoc: ");
-                id = scann.nextLine();
-                error = false;
-            }catch (Exception e){
-                System.out.println("S'esperava un número");
-                scann.next();
-            }
-        }
         return id;
     }
 
@@ -83,19 +73,9 @@ public class Main
      * @return
      */
     private static String demanarCompany(){
-        boolean error = true;
-        String companyia = "";
+        System.out.println("Introdueix la companyia del videojoc: ");
+        String companyia = scann.nextLine();
 
-        while (error) {
-            try{
-                System.out.println("Introdueix la companyia del videojoc: ");
-                companyia = scann.nextLine();
-                error = false;
-            }catch (Exception e){
-                System.out.println("S'esperava un número");
-                scann.next();
-            }
-        }
         return companyia;
     }
 
